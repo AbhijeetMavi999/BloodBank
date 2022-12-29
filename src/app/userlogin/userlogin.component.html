@@ -1,0 +1,43 @@
+<div class="container">
+    <form #loginForm="ngForm" (ngSubmit)="loginUser()">
+        <img src="/assets/img/user-image.png" alt="image">
+        <h1>User Login</h1>
+
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+            <input type="email" [(ngModel)]="user.email" name="email" id="email" class="form-control"
+                placeholder="Email address" required pattern="[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" #email="ngModel"
+                [class.is-invalid]="email.invalid && email.touched" />
+            <div *ngIf="email.errors && email.invalid && email.touched">
+                <p class="text-danger" *ngIf="email.errors?.['required']">
+                    Email Address is required
+                </p>
+                <p class="text-danger" *ngIf="email.errors?.['pattern']">
+                    Enter the valid Email Address
+                </p>
+            </div>
+        </div>
+
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+            <input type="password" [(ngModel)]="user.password" name="password" id="password" class="form-control"
+                placeholder="Password" required pattern="[a-zA-Z0-9]+$" #password="ngModel" [class.is-invalid]="email.invalid && email.touched" />
+            <div *ngIf="password.errors && password.invalid && password.touched">
+                <p class="text-danger" *ngIf="password.errors?.['required']">
+                    Password is required
+                </p>
+                <p class="text-danger" *ngIf="password.errors?.['pattern']">
+                    Enter the valid Password
+                </p>
+            </div>
+        </div>
+
+        <!-- Submit button -->
+        <input type="submit" class="btn btn-primary btn-block mb-4" value="Log In" [disabled]="loginForm.invalid"/>
+
+        <!-- Register buttons -->
+        <div class="text-center">
+            <p>Not a member? <a [routerLink]="['/userregistration']">Register</a></p>
+        </div>
+    </form>
+</div>

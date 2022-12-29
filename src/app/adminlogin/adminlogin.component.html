@@ -1,0 +1,38 @@
+<div class="container">
+    <form #loginForm="ngForm" (ngSubmit)="loginAdmin()">
+        <img src="/assets/img/admin-image.png" alt="image">
+        <h1>Admin Login</h1>
+
+        <!-- AdminId input -->
+        <div class="form-outline mb-4">
+            <input type="text" [(ngModel)]="admin.adminId" name="adminId" id="adminId" class="form-control"
+                placeholder="Enter Admin Id" required pattern="[a-zA-Z]+$" #adminId="ngModel"
+                [class.is-invalid]="adminId.invalid && adminId.touched" />
+            <div *ngIf="adminId.errors && adminId.invalid && adminId.touched">
+                <p class="text-danger" *ngIf="adminId.errors?.['required']">
+                    Admin Id field is required
+                </p>
+                <p class="text-danger" *ngIf="adminId.errors?.['pattern']">
+                    Enter the valid Admin Id
+                </p>
+            </div>
+        </div>
+
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+            <input type="password" [(ngModel)]="admin.adminPassword" name="adminPassword" id="adminPassword" class="form-control"
+                placeholder="Enter the password" required pattern="[a-zA-Z0-9]+$" #adminPassword="ngModel" [class.is-invalid]="adminPassword.invalid && adminPassword.touched" />
+            <div *ngIf="adminPassword.errors && adminPassword.invalid && adminPassword.touched">
+                <p class="text-danger" *ngIf="adminPassword.errors?.['required']">
+                    Password is required
+                </p>
+                <p class="text-danger" *ngIf="adminPassword.errors?.['pattern']">
+                    Enter the valid Password
+                </p>
+            </div>
+        </div>
+
+        <!-- Submit button -->
+        <input type="submit" class="btn btn-primary btn-block mb-4" value="Log In" [disabled]="loginForm.invalid"/>
+    </form>
+</div>

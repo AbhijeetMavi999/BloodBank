@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light px-2">
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link" (click)="checkBloodRequirement()">Check Blood Requirement</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="logOut()">Log Out</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <h1>List of All Users</h1>
+
+    <table class="table table-striped" style="margin-top: 10px;">
+        <thead>
+            <tr>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Email Address</th>
+                <th>Password</th>
+                <th>Contact Number</th>
+                <th>Age</th>
+                <th>State</th>
+                <th>Pin Code</th>
+                <th>Blood Group</th>
+                <th>Gender</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td class="align-middle">{{ user.firstName }}</td>
+                <td class="align-middle">{{ user.lastName }}</td>
+                <td class="align-middle">{{ user.email }}</td>
+                <td class="align-middle">{{ user.password }}</td>
+                <td class="align-middle">{{ user.contactNumber }}</td>
+                <td class="align-middle">{{ user.age }}</td>
+                <td class="align-middle">{{ user.state }}</td>
+                <td class="align-middle">{{ user.pinCode }}</td>
+                <td class="align-middle">{{ user.bloodGroup }}</td>
+                <td class="align-middle">{{ user.gender }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

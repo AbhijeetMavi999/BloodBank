@@ -1,0 +1,36 @@
+<div class="container">
+    <form #bloodCheckForm="ngForm" (ngSubmit)="checkBloodAvailability()">
+        <img src="/assets/img/blood-donation-image.png" alt="image">
+        <h1>Check Blood Availability</h1>
+
+        <!-- State input -->
+        <div class="form-outline mb-4">
+            <input type="text" [(ngModel)]="user.state" name="state" id="state" class="form-control"
+                placeholder="Enter the State" required #state="ngModel"
+                [class.is-invalid]="state.invalid && state.touched" />
+            <div *ngIf="state.errors && state.invalid && state.touched">
+                <p class="text-danger" *ngIf="state.errors?.['required']">
+                    State field is required
+                </p>
+            </div>
+        </div>
+
+        <!-- Blood Group input -->
+        <div class="form-outline mb-4">
+            <input type="text" [(ngModel)]="user.bloodGroup" name="bloodGroup" id="bloodGroup" class="form-control"
+                placeholder="Enter the BloodGroup" required pattern="^(A|B|AB|O)[-+]$" #bloodGroup="ngModel"
+                [class.is-invalid]="bloodGroup.invalid && bloodGroup.touched" />
+            <div *ngIf="bloodGroup.errors && bloodGroup.invalid && bloodGroup.touched">
+                <p class="text-danger" *ngIf="bloodGroup.errors?.['required']">
+                    Blood Group field is required
+                </p>
+                <p class="text-danger" *ngIf="bloodGroup.errors?.['pattern']">
+                    Enter the valid data
+                </p>
+            </div>
+        </div>
+        <!-- Submit button -->
+        <input class="btn btn-primary btn-block mb-4" type="submit" [disabled]="bloodCheckForm.invalid"/>
+
+    </form>
+</div>

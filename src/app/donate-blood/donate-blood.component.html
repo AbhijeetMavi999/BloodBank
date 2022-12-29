@@ -1,0 +1,99 @@
+<div class="container">
+    <form #donateBloodForm="ngForm" (ngSubmit)="donateBlood()">
+        <img src="/assets/img/donate-blood-image.png" alt="image">
+        <!-- <h1>Donate Blood</h1> -->
+
+        <div class="form1">
+            <!-- State input -->
+            <div class="form-outline mb-4">
+                <input type="text" [(ngModel)]="blooddonation.state" name="state" id="state" class="form-control"
+                    placeholder="Enter the State" required #state="ngModel"
+                    [class.is-invalid]="state.invalid && state.touched" />
+                <div *ngIf="state.errors && state.invalid && state.touched">
+                    <p class="text-danger" *ngIf="state.errors?.['required']">
+                        State field is required
+                    </p>
+                    <!-- <p class="text-danger" *ngIf="state.errors?.['pattern']">
+                    Enter the valid data
+                </p> -->
+                </div>
+            </div>
+            <!-- Area input -->
+            <div class="form-outline mb-4">
+                <input type="text" [(ngModel)]="blooddonation.area" name="area" id="area" class="form-control"
+                    placeholder="Enter the Area" required #area="ngModel"
+                    [class.is-invalid]="area.invalid && area.touched" />
+                <div *ngIf="area.errors && area.invalid && area.touched">
+                    <p class="text-danger" *ngIf="area.errors?.['required']">
+                        Area field is required
+                    </p>
+                    <!-- <p class="text-danger" *ngIf="area.errors?.['pattern']">
+                    Enter the valid Area
+                </p> -->
+                </div>
+            </div>
+            <!-- PinCode input -->
+            <div class="form-outline mb-4">
+                <input type="text" onfocus="this.value=''" [(ngModel)]="blooddonation.pinCode" name="pinCode" id="pinCode" class="form-control"
+                    placeholder="Enter the PinCode" pattern="[0-9]+$" required #pinCode="ngModel"
+                    [class.is-invalid]="pinCode.invalid && pinCode.touched" />
+                <div *ngIf="pinCode.errors && pinCode.invalid && pinCode.touched">
+                    <p class="text-danger" *ngIf="pinCode.errors?.['required']">
+                        PinCode field is required
+                    </p>
+                    <p class="text-danger" *ngIf="pinCode.errors?.['pattern']">
+                        Enter the valid Pin Code
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form2">
+            <!-- Blood Group input -->
+            <div class="form-outline mb-4">
+                <input type="text" [(ngModel)]="blooddonation.bloodGroup" name="bloodGroup" id="bloodGroup"
+                    class="form-control" placeholder="Enter the BloodGroup" pattern="^(A|B|AB|O)[-+]$" required
+                    #bloodGroup="ngModel" [class.is-invalid]="bloodGroup.invalid && bloodGroup.touched" />
+                <div *ngIf="bloodGroup.errors && bloodGroup.invalid && bloodGroup.touched">
+                    <p class="text-danger" *ngIf="bloodGroup.errors?.['required']">
+                        Blood Group field is required
+                    </p>
+                    <p class="text-danger" *ngIf="bloodGroup.errors?.['pattern']">
+                        Enter the valid Blood Group
+                    </p>
+                </div>
+            </div>
+            <!--  City input -->
+            <div class="form-outline mb-4">
+                <input type="text" [(ngModel)]="blooddonation.city" name="city" id="city" class="form-control"
+                    placeholder="Enter the City" required #city="ngModel"
+                    [class.is-invalid]="city.invalid && city.touched" />
+                <div *ngIf="city.errors && city.invalid && city.touched">
+                    <p class="text-danger" *ngIf="city.errors?.['required']">
+                        City field is required
+                    </p>
+                    <!-- <p class="text-danger" *ngIf="pinCode.errors?.['pattern']">
+                    Enter the valid City
+                </p> -->
+                </div>
+            </div>
+            <!-- Hospital input -->
+            <div class="form-outline mb-4">
+                <input type="text" [(ngModel)]="blooddonation.hospitalName" name="hospitalName" id="hospitalName"
+                    class="form-control" placeholder="Enter the Hospital Name" required #hospitalName="ngModel"
+                    [class.is-invalid]="hospitalName.invalid && hospitalName.touched" />
+                <div *ngIf="hospitalName.errors && hospitalName.invalid && hospitalName.touched">
+                    <p class="text-danger" *ngIf="hospitalName.errors?.['required']">
+                        Hospital Name field is required
+                    </p>
+                    <!-- <p class="text-danger" *ngIf="pinCode.errors?.['pattern']">
+                    Enter the valid Hospital
+                </p> -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Submit button -->
+        <input type="submit" class="btn btn-primary btn-block mb-4" [disabled]="donateBloodForm.invalid"/>
+    </form>
+</div>

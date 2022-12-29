@@ -1,0 +1,193 @@
+<div class="container">
+    <form #registerForm="ngForm" (ngSubmit)="registerUser()">
+
+        <img src="/assets/img/user-image.png" alt="image">
+        <h1>User Registration Form</h1>
+
+        <div class="form1">
+            <!-- Firstname input -->
+            <div class="form-outline mb-2">
+                <input type="text" [(ngModel)]="user.firstName" name="firstName" id="firstName" class="form-control"
+                    placeholder="Firstname" required #firstName="ngModel"
+                    [class.is-invalid]="firstName.invalid && firstName.touched" />
+
+                <div *ngIf="firstName.errors && firstName.invalid && firstName.touched">
+                    <p class="text-danger" *ngIf="firstName.errors?.['required']">
+                        Firstname field is required
+                    </p>
+                    <!-- <p class="text-danger" *ngIf="firstName.errors?.['pattern']">
+                        Enter the valid firstName
+                    </p> -->
+                </div>
+            </div>
+
+            <!-- Lastname input -->
+            <div class="form-outline mb-2">
+                <input type="text" [(ngModel)]="user.lastName" name="lastName" id="lastName" class="form-control"
+                    placeholder="Lastname" required  #lastName="ngModel"
+                    [class.is-invalid]="lastName.invalid && lastName.touched" />
+                <div *ngIf="lastName.errors && lastName.invalid && lastName.touched">
+                    <p class="text-danger" *ngIf="lastName.errors?.['required']">
+                        Lastname field is required
+                    </p>
+                    <!-- <p class="text-danger" *ngIf="lastName.errors?.['pattern']">
+                        Enter the valid Lastname
+                    </p> -->
+                </div>
+            </div>
+
+            <!-- Age input -->
+            <div class="form-outline mb-2">
+                <input type="text" onfocus="this.value=''" [(ngModel)]="user.age" name="age" id="age" class="form-control" placeholder="Age"
+                    required pattern="[0-9]+$" #age="ngModel" [class.is-invalid]="age.invalid && age.touched" />
+                <div *ngIf="age.errors && age.invalid && age.touched">
+                    <p class="text-danger" *ngIf="age.errors?.['required']">
+                        Age field is required
+                    </p>
+                    <p class="text-danger" *ngIf="age.errors?.['pattern']">
+                        Enter the valid age
+                    </p>
+                </div>
+            </div>
+
+            <!-- Gender input -->
+            <div class="form-outline mb-2">
+                <input type="text" [(ngModel)]="user.gender" name="gender" id="gender" class="form-control"
+                    placeholder="Gender" required pattern="[a-zA-Z]+$" #gender="ngModel"
+                    [class.is-invalid]="gender.invalid && gender.touched" />
+                <div *ngIf="gender.errors && gender.invalid && gender.touched">
+                    <p class="text-danger" *ngIf="gender.errors?.['required']">
+                        Gender field is required
+                    </p>
+                    <p class="text-danger" *ngIf="gender.errors?.['pattern']">
+                        Accept only string
+                    </p>
+                </div>
+            </div>
+
+            <!-- Contact number input -->
+            <div class="form-outline mb-2">
+                <input type="text" onfocus="this.value=''" [(ngModel)]="user.contactNumber" name="contactNumber" id="contactNumber"
+                    class="form-control" placeholder="Contact Number" required pattern="[0-9]+$"
+                    #contactNumber="ngModel" [class.is-invalid]="contactNumber.invalid && contactNumber.touched" />
+                <div *ngIf="contactNumber.errors && contactNumber.invalid && contactNumber.touched">
+                    <p class="text-danger" *ngIf="contactNumber.errors?.['required']">
+                        Contact Number field is required
+                    </p>
+                    <p class="text-danger" *ngIf="contactNumber.errors?.['pattern']">
+                        Enter the valid data
+                    </p>
+                </div>
+            </div>
+
+            <!-- Email input -->
+            <div class="form-outline mb-2">
+                <input type="email" [(ngModel)]="user.email" name="email" id="email" class="form-control"
+                    placeholder="Email Address" required pattern="[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" #email="ngModel"
+                    [class.is-invalid]="email.invalid && email.touched" />
+                <div *ngIf="email.errors && email.invalid && email.touched">
+                    <p class="text-danger" *ngIf="email.errors?.['required']">
+                        Email Address field is required
+                    </p>
+                    <p class="text-danger" *ngIf="email.errors?.['pattern']">
+                        Enter the valid Email Address
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form2">
+            <!-- Weight input -->
+            <div class="form-outline mb-2">
+                <input type="text" onfocus="this.value=''" [(ngModel)]="user.weight" name="weight" id="weight" class="form-control"
+                    placeholder="Weight" required pattern="[0-9]+$" #weight="ngModel"
+                    [class.is-invalid]="weight.invalid && weight.touched" />
+                <div *ngIf="weight.errors && weight.invalid && weight.touched">
+                    <p class="text-danger" *ngIf="weight.errors?.['required']">
+                        Weight field is required
+                    </p>
+                    <p class="text-danger" *ngIf="weight.errors?.['pattern']">
+                        Enter the valid data
+                    </p>
+                </div>
+            </div>
+
+            <!-- State input -->
+            <div class="form-outline mb-2">
+                <input type="text" [(ngModel)]="user.state" name="state" id="state" class="form-control"
+                    placeholder="State" required  #state="ngModel"
+                    [class.is-invalid]="state.invalid && state.touched" />
+                <div *ngIf="state.errors && state.invalid && state.touched">
+                    <p class="text-danger" *ngIf="state.errors?.['required']">
+                        State field is required
+                    </p>
+                    <!-- <p class="text-danger" *ngIf="state.errors?.['pattern']">
+                        Enter the valid data
+                    </p> -->
+                </div>
+            </div>
+
+            <!-- Area input -->
+            <div class="form-outline mb-2">
+                <input type="text" [(ngModel)]="user.area" name="area" id="area" class="form-control" placeholder="Area"
+                    required  #area="ngModel" [class.is-invalid]="area.invalid && area.touched" />
+                <div *ngIf="area.errors && area.invalid && area.touched">
+                    <p class="text-danger" *ngIf="area.errors?.['required']">
+                        Area field is required
+                    </p>
+                    <!-- <p class="text-danger" *ngIf="area.errors?.['pattern']">
+                        Enter the valid data
+                    </p> -->
+                </div>
+            </div>
+
+            <!-- Pincode input -->
+            <div class="form-outline mb-2">
+                <input type="text" onfocus="this.value=''" [(ngModel)]="user.pinCode" name="pinCode" id="pinCode" class="form-control"
+                    placeholder="PinCode" required pattern="[0-9]+$" #pinCode="ngModel"
+                    [class.is-invalid]="pinCode.invalid && pinCode.touched" />
+                <div *ngIf="pinCode.errors && pinCode.invalid && pinCode.touched">
+                    <p class="text-danger" *ngIf="pinCode.errors?.['required']">
+                        Pin Code field is required
+                    </p>
+                    <p class="text-danger" *ngIf="pinCode.errors?.['pattern']">
+                        Enter the valid data
+                    </p>
+                </div>
+            </div>
+
+            <!-- BloodGroup input -->
+            <div class="form-outline mb-2">
+                <input type="text" [(ngModel)]="user.bloodGroup" name="bloodGroup" id="bloodGroup" class="form-control"
+                    placeholder="Blood Group" required pattern="[a-zA-Z.+-]+$" #bloodGroup="ngModel"
+                    [class.is-invalid]="bloodGroup.invalid && bloodGroup.touched" />
+                <div *ngIf="bloodGroup.errors && bloodGroup.invalid && bloodGroup.touched">
+                    <p class="text-danger" *ngIf="bloodGroup.errors?.['required']">
+                        Blood Groupfield is required
+                    </p>
+                    <p class="text-danger" *ngIf="bloodGroup.errors?.['pattern']">
+                        Enter the valid data
+                    </p>
+                </div>
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-2">
+                <input type="password" [(ngModel)]="user.password" name="password" id="password" class="form-control"
+                    placeholder="Password" required pattern="[a-zA-Z0-9]+$" #password="ngModel"
+                    [class.is-invalid]="password.invalid && password.touched" />
+                <div *ngIf="password.errors && password.invalid && password.touched">
+                    <p class="text-danger" *ngIf="password.errors?.['required']">
+                        Password field is required
+                    </p>
+                    <p class="text-danger" *ngIf="password.errors?.['pattern']">
+                        Enter the valid data
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submit button -->
+        <input type="submit" class="btn btn-primary btn-block mb-4" value="Register" [disabled]="registerForm.invalid"/>
+    </form>
+</div>

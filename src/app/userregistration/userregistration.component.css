@@ -1,0 +1,24 @@
+.container {
+  max-width: 480px;
+  margin-top: 10px;
+  /* margin-left: 430px; */
+}
+
+img {
+  max-height: 130px;
+  max-width: 130px;
+  margin-left: 160px;
+}
+
+h1 {
+  text-align: center;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.form1 {
+  float: left;
+}
+
+.form2 {
+  float: right;
+}

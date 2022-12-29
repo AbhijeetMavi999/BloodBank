@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>Urgent Blood Requirement</h1>    
+
+    <table class="table table-striped" style="margin-top: 10px;">
+        <thead>
+            <tr>
+                <th>State</th>
+                <th>Area</th>
+                <th>Pin Code</th>
+                <th>Blood Group</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let brt of bloodRequirementTables">
+                <td class="align-middle">{{ brt.state }}</td>
+                <td class="align-middle">{{ brt.area }}</td>
+                <td class="align-middle">{{ brt.pinCode }}</td>
+                <td class="align-middle">{{ brt.bloodGroup }}</td>
+                
+                <td>
+                    <button mat-raised-button color="warn" (click)="deleteById(brt.bloodRequirementId)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
